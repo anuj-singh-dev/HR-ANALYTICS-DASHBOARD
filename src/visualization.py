@@ -285,7 +285,9 @@ def plot_dashboard(df):
     plt.pie(
         attrition.values,
         labels=attrition.index,
-        autopct="%1.1f%%")
+        autopct="%1.1f%%",
+        shadow=True,
+        explode=(0.2,0))
 
     plt.title("Attrition Distribution", fontsize=14, fontweight="bold")
 
@@ -361,7 +363,7 @@ def plot_dashboard(df):
 
     attrition_rate = (yes_attrition/total_employees)*100
 
-    plt.bar(attrition_rate.index , attrition_rate.values)
+    plt.bar(attrition_rate.index , attrition_rate.values, color = "green")
     plt.title("Work-Life Balance vs Attrition Rate", fontsize=14, fontweight="bold")
     plt.xlabel("WorK-Life Balance", fontsize=12, fontweight="bold")
     plt.ylabel("Attrition Rate (%)", fontsize=12, fontweight="bold")
@@ -374,7 +376,7 @@ def plot_dashboard(df):
     fontsize=18,
     fontweight="bold")
 
-    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.tight_layout(rect=[0, 0, 1, 0.95],pad=3)
 
     # Save The Dashboard
     plt.savefig(
